@@ -6,6 +6,9 @@ import DRIZZLE from "../assets/drizzle 1.svg";
 import RAIN from "../assets/rain 1.svg";
 
 const Forecast = ({dark}:any) => {
+
+    
+
     return (
         <div className={` w-[35%] rounded-2xl px-6 py-3.75 shadow-[8px_8px_0px_rgba(0,0,0,0.15)]  ${!dark ? 'bg-[#444444]' : "bg-[#D9D9D9]"} `}>
             <h1 className={`text-center font-poppins font-bold text-[32px] ${!dark?"text-white":""}`}>5 Days Forecast:</h1>
