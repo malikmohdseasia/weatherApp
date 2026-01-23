@@ -72,18 +72,18 @@ const HourlyForecast = ({ dark, details }: any) => {
   }, [details?.name])
 
   return (
-    <div className={`w-[65%] rounded-2xl  shadow-[8px_8px_0px_rgba(0,0,0,0.15)]  ${!dark ? 'bg-[#444444]' : "bg-[#D9D9D9]"} `}>
+    <div className={`w-full lg:w-[65%] rounded-2xl  shadow-[8px_8px_0px_rgba(0,0,0,0.15)]  ${!dark ? 'bg-[#444444]' : "bg-[#D9D9D9]"} `}>
       <h1 className={`text-center font-poppins font-bold text-[32px] ${!dark ? "text-white" : ""}`}>Hourly Forecast:</h1>
 
 
-      <div className="flex items-center gap-3.75 justify-center py-4">
+      <div className="flex flex-col md:flex-row items-center gap-3.75 justify-center py-4">
 
         {
           foreCast && foreCast?.slice(0, 5)?.map((item: any, index: any) => (
 
             <div
               key={index}
-              className={`
+              className={` w-[70%] md:w-[15%]
     ${index === 3 || index === 4
                   ? dark
                     ? "bg-[linear-gradient(180deg,#443D64_0%,#6582C6_100%)]"
@@ -99,44 +99,15 @@ const HourlyForecast = ({ dark, details }: any) => {
                 <h1 className={`text-[24px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>{timeSlots[index]}</h1>
               
 
-              <img src={getWeatherImage()} alt="" />
+              <img src={getWeatherImage()} alt="" className="w-full" />
               <h2 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>{Math.floor(item?.main?.temp)}°C</h2>
-              <img src={NAVIGATION} alt="" className={`${index === 1 && '-rotate-45'} ${index === 3 && 'rotate-45'}`} />
+              <img src={NAVIGATION} alt="" className={` py-3 w-[40%] md:w-[60%] ${index === 1 && '-rotate-45'} ${index === 3 && 'rotate-45'}`} />
               <h1 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>{Math.floor(item?.wind?.speed)}km/h</h1>
             </div>
           ))
         }
 
 
-        {/* <div className={`${dark ? "bg-[linear-gradient(180deg,#F88508_0%,#F6FAD9_100%)]" : "bg-[#373636] "} rounded-3xl  py-3.5 px-5 flex  items-center flex-col`}>
-          <h1 className={`text-[24px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>15:00</h1>
-          <img src={CLEAR} alt="" />
-          <h2 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>27°C</h2>
-          <img src={NAVIGATION} alt="" className="-rotate-45" />
-          <h1 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>3km/h</h1>
-        </div>
-        <div className={`${dark ? "bg-[linear-gradient(180deg,#F88508_0%,#F6FAD9_100%)]" : "bg-[#373636] "} rounded-3xl  py-3.5 px-5 flex  items-center flex-col`}>
-          <h1 className={`text-[24px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>18:00</h1>
-          <img src={CLEAR} alt="" />
-          <h2 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>27°C</h2>
-          <img src={NAVIGATION} alt="" />
-          <h1 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>2km/h</h1>
-        </div>
-
-        <div className={`${dark ? "bg-[linear-gradient(180deg,#443D64_0%,#6582C6_100%)]" : "bg-[#373636] "} rounded-3xl  py-3.5 px-5 flex  items-center flex-col`}>
-          <h1 className={`text-[24px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>21:00</h1>
-          <img src={CLEAR} alt="" />
-          <h2 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>25°C</h2>
-          <img src={NAVIGATION} alt="" className="rotate-45" />
-          <h1 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>2km/h</h1>
-        </div>
-        <div className={`${dark ? "bg-[linear-gradient(180deg,#443D64_0%,#6582C6_100%)]" : "bg-[#373636] "} rounded-3xl  py-3.5 px-5 flex  items-center flex-col`}>
-          <h1 className={`text-[24px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>00:00</h1>
-          <img src={CLEAR} alt="" />
-          <h2 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>22°C</h2>
-          <img src={NAVIGATION} alt="" />
-          <h1 className={`text-[20px] font-bold font-poppins ${!dark ? 'text-white' : ''}`}>3km/h</h1>
-        </div> */}
       </div>
     </div>
   )

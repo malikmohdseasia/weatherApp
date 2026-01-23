@@ -94,14 +94,15 @@ const LiveData = ({ dark, details }: any) => {
 
 
     return (
-        <div className={`flex items-center rounded-2xl w-[70%] px-6  shadow-[8px_8px_0px_rgba(0,0,0,0.15)]  ${!dark ? 'bg-[#444444]' : "bg-[#D9D9D9]"} `}>
+        <div className={`flex flex-col md:flex-row items-center justify-between rounded-2xl lg:w-[70%] px-2 md:px-6  shadow-[8px_8px_0px_rgba(0,0,0,0.15)]  ${!dark ? 'bg-[#444444]' : "bg-[#D9D9D9]"} `}>
             <div className="">
-                <div>
-                    <h1 className={`font-poppins font-bold text-[65px] ${!dark ? 'text-transparent [-webkit-text-stroke:2px_#000] bg-linear-to-r from-[#D9D9D9] to-[#444444] bg-clip-text' : ""}`}>{Math.round(temp)} °C</h1>
+                <div className="flex flex-col items-center justify-center md:justify-start">
+                    <h1 className={`font-poppins font-bold text-[50px] lg:text-[65px] ${!dark ? 'text-transparent [-webkit-text-stroke:2px_#000] bg-linear-to-r from-[#D9D9D9] to-[#444444] bg-clip-text' : ""}`}>{Math.round(temp)} °C</h1>
                     <h2 className={`font-poppins  text-[20px] ${!dark ? 'text-white opacity-80' : ""}`}>Feels like: <span className="text-[25px]  opacity-80 font-bold">{Math.floor(details?.main?.feels_like)} °C</span></h2>
                 </div>
 
-                <div className="flex items-center gap-1">
+             <div className="mt-10 mt:0 flex flex-row md:flex-col items-center gap-5 md:gap-0">
+                   <div className="flex items-center flex-col md:flex-row text-center md:text-start gap-1 md:mt-2.5">
                     <div>
                         <img src={dark ? SunRiseBLACK : SunRise} alt="" />
                     </div>
@@ -113,7 +114,7 @@ const LiveData = ({ dark, details }: any) => {
                     </div>
 
                 </div>
-                <div className="flex items-center gap-1 mt-2.5">
+                <div className="flex items-center flex-col md:flex-row text-center md:text-start gap-1 md:mt-2.5 md:mb-2">
                     <div>
                         <img src={dark ? SunSetBLACK : SunSet} alt="" />
                     </div>
@@ -125,18 +126,19 @@ const LiveData = ({ dark, details }: any) => {
                     </div>
 
                 </div>
+             </div>
             </div>
 
             <div className="flex flex-col items-center justify-center">
                 <img src={getWeatherImage()} alt="" className="h-60 object-contain" />
-                <h1 className={`text-[32px] font-semibold font-poppins capitalize ${!dark ? 'text-white' : ""}`}>{details?.weather[0]?.main}</h1>
+                <h1 className={`text-[32px] font-semibold font-poppins capitalize -mt-15 md:mt-0 ${!dark ? 'text-white' : ""}`}>{details?.weather[0]?.main}</h1>
             </div>
 
-            <div className="flex flex-col gap-3.75">
+            <div className="flex flex-col md:gap-3.75 items-center py-5">
                 <div>
-                    <div className="flex gap-4.25 items-center ">
+                    <div className="flex gap-10 md:gap-4.25 items-center my-5 md:my-0">
                         <div className="flex flex-col items-center text-center"><img src={dark ? HUMIDITYICON_BLACK : HUMIDITYICON} alt="" />
-                            <div>
+                           <div className="mt-2">
                                 <h1 className={`text-[20px] font-semibold font-poppins ${!dark ? 'text-white' : ""}`}>{details?.main?.humidity} %</h1>
                                 <h2 className={`text-[20px]  font-poppins ${!dark ? 'text-white' : ""}`}>Humidity</h2>
                             </div>
@@ -150,14 +152,14 @@ const LiveData = ({ dark, details }: any) => {
                     </div>
                 </div>
 
-                <div className="flex gap-12.5 items-center">
-                    <div className="flex flex-col items-center text-center"><img src={dark ? PICON_BLACK : PICON} alt="" />
+                <div className="flex gap-18 md:gap-18 items-center ">
+                    <div className="flex flex-col items-center text-center -ml-8 md:ml-3"><img src={dark ? PICON_BLACK : PICON} alt="" />
                         <div>
                             <h1 className={`text-[20px] font-semibold  font-poppins ${!dark ? 'text-white' : ""}`}>{details?.main?.pressure}hPa</h1>
                             <h2 className={`text-[20px]  font-poppins ${!dark ? 'text-white' : ""}`}>Pressure</h2>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center text-center"><img src={dark ? UVICON_BLACK : UVICON} alt="" />
+                    <div className="flex flex-col items-center text-center md:mr-8"><img src={dark ? UVICON_BLACK : UVICON} alt="" />
                         <div>
                             <h1 className={`text-[20px] font-semibold font-poppins ${!dark ? 'text-white' : ""}`}>8</h1>
                             <h2 className={`text-[18px] font-poppins ${!dark ? 'text-white' : ""}`}>UV</h2>
