@@ -113,6 +113,9 @@ const Home = () => {
   }, [])
 
 
+  if(error) return <h1 className="text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Please Allow Your Location!</h1>
+
+
   return (
     <div className={`w-container mx-auto ${!dark ? "bg-linear-to-r from-[#444444] to-black" : "bg-[linear-gradient(90deg,#D9D9D9_0%,#292929_100%)]"} px-3 md:px-10 `}>
 

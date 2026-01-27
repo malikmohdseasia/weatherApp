@@ -20,7 +20,6 @@ export const useAuthStore = create((set) => ({
         try {
             const res = await axios.post("https://fakestoreapi.com/auth/login", user);
             set({ user, isLoading: false });
-            // toast.success("Successfully Login!", { position: "top-center" });
             localStorage.setItem('token', res.data.token);
             set({
                 token: res.data.token,
